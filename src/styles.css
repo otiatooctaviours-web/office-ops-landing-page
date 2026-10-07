@@ -74,3 +74,20 @@ footer { padding:42px 0 24px; border-top:1px solid var(--border); }.footer-top {
 @media(max-width:850px) { .hero-browser { transform:none; } .tour-content[data-state=active] { grid-template-columns:1fr; gap:24px; } .tour-copy { max-width:620px; } .login-preview { grid-template-columns:1fr 280px; gap:24px; } }
 @media(max-width:600px) { .login-preview { grid-template-columns:1fr; gap:18px; } .login-preview .browser-frame { width:100%; max-width:350px; } .tour-tabs { flex-wrap:nowrap; overflow-x:auto; padding-bottom:12px; } .tour-tab { flex-shrink:0; font-size:10px; } .browser-label { font-size:8px; } .browser-bar-end { width:8px; } .tour-copy h3 { font-size:23px; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none !important; transition:none !important; } }
+
+/* Contact section: logo burst + linked contact cards */
+.contact-brand { display:flex; flex-direction:column; align-items:center; text-align:center; margin:26px 0 30px; }
+.logo-burst { position:relative; width:118px; height:118px; display:grid; place-items:center; }
+.burst-rays { position:absolute; inset:-38px; border-radius:50%; background:repeating-conic-gradient(from 0deg, var(--primary) 0deg 10deg, var(--navy) 10deg 20deg); opacity:.85; -webkit-mask:radial-gradient(circle, transparent 32%, black 46%, black 60%, transparent 76%); mask:radial-gradient(circle, transparent 32%, black 46%, black 60%, transparent 76%); animation:burst-spin 26s linear infinite; }
+@keyframes burst-spin { to { transform:rotate(360deg); } }
+.logo-burst img { position:relative; width:112px; height:112px; object-fit:contain; background:var(--card); border:1px solid var(--border); border-radius:26px; padding:12px; box-shadow:0 18px 40px -18px color-mix(in oklab, var(--primary) 45%, transparent); }
+.burst-name { font-size:32px; font-weight:800; letter-spacing:-.5px; margin-top:22px; color:var(--foreground); }
+.burst-name small { font-size:11px; font-weight:700; color:var(--primary); background:var(--accent); border-radius:4px; padding:4px 7px; margin-left:7px; vertical-align:middle; }
+.burst-by { font-size:10px; letter-spacing:1.6px; color:var(--muted-foreground); margin-top:7px; }
+.contact-icons { display:flex; gap:10px; }
+.contact-icons a { display:grid; place-items:center; width:46px; height:46px; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--primary); transition:.2s; }
+.contact-icons a:hover { background:var(--primary); color:var(--primary-foreground); transform:translateY(-2px); }
+.contact-icons a svg { width:22px; height:22px; }
+a.contact-card { text-decoration:none; color:inherit; }
+a.contact-card:hover h3 { color:var(--primary); }
+@media(max-width:600px) { .burst-rays { inset:-28px; } .logo-burst img { width:96px; height:96px; border-radius:22px; } .burst-name { font-size:26px; } }
